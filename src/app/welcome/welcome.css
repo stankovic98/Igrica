@@ -1,0 +1,30 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+.container-fluid {
+    background-image: url("app/welcome/pozadina.jpg");
+    background-size: 100%;
+	background-position: center;
+    height: 100vh;
+}
+.input-form {
+    width: 500px;
+	margin: 0 auto;
+	position: relative;
+	top: 200px;
+	font-size: 30px;
+    text-align: center;
+} 
+h1 {
+    font-size: 80px;
+    color: white;
+}
+input {
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+.btn {
+    font-size: 30px;
+}
