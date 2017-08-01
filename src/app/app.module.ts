@@ -20,7 +20,7 @@ import { GameComponent } from './game/game.component';
     HttpModule,
     RouterModule.forRoot([
       { path: 'welcome', component: WelcomeComponent },
-      { path: 'game', component: GameComponent },
+      { path: 'game/:nickname', component: GameComponent },
       { path: '', component: WelcomeComponent},
       { path: '**', component: WelcomeComponent }
 

@@ -16,7 +16,7 @@ export class WelcomeComponent {
             return;
         }
 
-        this._router.navigate(['/game']);
+        this._router.navigate(['/game/'+ this.nickname]);
     }
 
 }
