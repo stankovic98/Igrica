@@ -1,8 +1,8 @@
 <div class='container-fluid'>
     <div class='input-form'>
         <h1>The Game</h1>
-        <input type="text"  placeholder='Nickname'>
+        <input type="text"  placeholder='Nickname' [(ngModel)]='nickname' />
         <br>
-        <button type="button" class="btn btn-primary">Start</button>
+        <button type="button" class="btn btn-primary" (click)="onClick()" >Start</button>
     </div>
 </div>
