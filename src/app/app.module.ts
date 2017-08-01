@@ -6,25 +6,26 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { GameComponent } from './game/game.component';
+import { GameModule } from './game.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent,
-    GameComponent
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    GameModule,
     HttpModule,
     RouterModule.forRoot([
       { path: 'welcome', component: WelcomeComponent },
-      { path: 'game/:nickname', component: GameComponent },
       { path: '', component: WelcomeComponent},
       { path: '**', component: WelcomeComponent }
 
-    ])
+    ]),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
