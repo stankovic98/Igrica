@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
+import { Subscription } from 'rxjs';
 
 import { ItemComponent } from './item/item.component';
 
@@ -10,16 +11,32 @@ import { ItemComponent } from './item/item.component';
 })
 
 export class GameComponent implements OnInit {
-    html;
+    trajanjeIgre: number = 3;
+    ticks: number = 0;
     bodovi: number = 0;
+    private subscription: Subscription;
 
     ngOnInit() {
         let timer = Observable.timer(0, 1000);
-        timer.subscribe(this.createItem);
+        this.subscription = timer.subscribe(t => {
+            this.timerZaIgru(this.trajanjeIgre, t);
+        });
     }
 
-    createItem(): void {
-        this.html = document.createElement('app-item');
-        document.getElementsByTagName('div')[0].appendChild(this.html);
+    timerZaIgru(trajanjeIgre: number, start: number): void {
+        if (start > trajanjeIgre) {
+            alert("game over");
+            this.prekidIgre();
+        }
+
     }
+    
+    prekidIgre(): void {
+        this.subscription.unsubscribe();
+    }
+
+    // createItem(): void {
+    //     this.html = document.createElement('app-item');
+    //     document.getElementsByTagName('div')[0].appendChild(this.html);
+    // }
 }
