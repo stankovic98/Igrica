@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    template:'<h1>Helo</h1><app-navbar></app-navbar>'
+    template:'<app-navbar></app-navbar><div></div>',
+    styles: ['div {height: 85vh; width: 95vw; }']
 })
 
 export class GameComponent {
