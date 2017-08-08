@@ -1,4 +1,4 @@
-import { Component, OnInit,  } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScoreService } from './../shared/score.service';
 @Component({
@@ -22,7 +22,8 @@ export class ItemComponent implements OnInit {
     posY: string = this.getRandom(this.HEIGHT - 50) + 40 + "px";
     color: string = this.getRandomColor();
     show: boolean = true;
-
+    style: any = [];
+    shape: number = this.getRandom(3);
 
     constructor(private _score: ScoreService) {
 
@@ -30,21 +31,49 @@ export class ItemComponent implements OnInit {
     bodovi: number = 0;
 
     ngOnInit() {
-        setTimeout(() => {this.show = false}, 2000);
+        setTimeout(() => { this.show = false }, 2000);
     }
 
     setStyle() {
-        return {
-            "width": this.sizeX,
-            "height": this.sizeY,
-            "left": this.posX,
-            "top": this.posY,
-            "background-color": this.color
+        switch (this.shape) {
+            case 0:
+                console.log('case 1');
+                this.style = {
+                    "width": this.sizeX,
+                    "height": this.sizeY,
+                    "left": this.posX,
+                    "top": this.posY,
+                    "background-color": this.color,
+                }
+                break;
+            case 1:
+                console.log('case 2');
+                this.style = {
+                    "width": this.sizeX,
+                    "height": this.sizeX,
+                    "left": this.posX,
+                    "top": this.posY,
+                    "background-color": this.color,
+                    "border-radius": "50%"
+                }
+                break;
+            case 2:
+                console.log('case 3');
+                this.style = {
+                    "width": this.sizeX,
+                    "height": this.sizeX,
+                    "left": this.posX,
+                    "top": this.posY,
+                    "background-color": this.color,
+                }
+                break;
         }
+        return this.style;
     }
 
     getRandom(max: number): number {
         this.ran = Math.floor(Math.random() * max);
+        if (max < 5) return this.ran;
         if (this.ran > 30)
             return this.ran;
         else
