@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { GameModule } from './game.module';
-
+import { ScoreService } from './game/shared/score.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { GameModule } from './game.module';
     ]),
     
   ],
-  providers: [],
+  providers: [ ScoreService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

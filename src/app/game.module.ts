@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 import { GameComponent } from './game/game.component';
 import { NavbarComponent } from './game/navbar/navbar.component';
 import { ItemComponent } from './game/item/item.component';
-import { ExploreRendererDirective } from './game/explore-renderer-directive.component';
+
 
 @NgModule({
     declarations: [
         GameComponent,
         NavbarComponent,
         ItemComponent,
-        ExploreRendererDirective
     ],
     imports: [
+        CommonModule,
         RouterModule.forChild([
             { path: 'game/:nickname', component: GameComponent}
         ])

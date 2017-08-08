@@ -1,17 +1,67 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit,  } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ScoreService } from './../shared/score.service';
 @Component({
     selector: 'appitem',
-    template: '<div></div>',
-    styles: ['div {width:100px; height: 200px; background-color: green;} ']
+    template: `
+    <style>
+        div {
+            position: absolute;
+        }
+    </style>
+    <div [ngStyle]="setStyle()" *ngIf='show' (click)='increseScoreAndHide()' ></div>`,
 })
-export class ItemComponent implements OnInit{
-    constructor(){
-    
-  }
+export class ItemComponent implements OnInit {
+    ran: number;
+
+    WIDTH: number = window.innerWidth;
+    HEIGHT: number = window.innerHeight;
+    sizeX: string = this.getRandom(this.WIDTH / 4) + "px";
+    sizeY: string = this.getRandom(this.HEIGHT / 4) + "px";
+    posX: string = this.getRandom(this.WIDTH - 20) + "px";
+    posY: string = this.getRandom(this.HEIGHT - 50) + 40 + "px";
+    color: string = this.getRandomColor();
+    show: boolean = true;
+
+
+    constructor(private _score: ScoreService) {
+
+    }
     bodovi: number = 0;
 
     ngOnInit() {
+        setTimeout(() => {this.show = false}, 2000);
+    }
 
+    setStyle() {
+        return {
+            "width": this.sizeX,
+            "height": this.sizeY,
+            "left": this.posX,
+            "top": this.posY,
+            "background-color": this.color
+        }
+    }
+
+    getRandom(max: number): number {
+        this.ran = Math.floor(Math.random() * max);
+        if (this.ran > 30)
+            return this.ran;
+        else
+            return this.ran + 15;
+    }
+    getRandomColor() {
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+    increseScoreAndHide() {
+        this.show = false;
+
+        this._score.score++;
+        this._score.setScore(this._score.score);
     }
 }

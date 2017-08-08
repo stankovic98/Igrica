@@ -7,8 +7,7 @@ import { ItemComponent } from './item/item.component';
 
 @Component({
     
-    template: '<app-navbar [bodovi]=bodovi #parent></app-navbar><div></div>',
-    styles: ['div {height: 85vh; width: 95vw; }'],
+    template: '<app-navbar #parent></app-navbar><div></div>'
 
 })
 
@@ -29,6 +28,7 @@ export class GameComponent implements OnInit {
     }
 
     timerZaIgru(trajanjeIgre: number, start: number): void {
+        this.addElement();
         if (start > trajanjeIgre) {
             //alert("game over");
             this.prekidIgre();
