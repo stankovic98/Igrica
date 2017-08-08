@@ -2,11 +2,12 @@ import { Component, OnInit, AfterContentInit, ElementRef, ViewContainerRef, Comp
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 import { ItemComponent } from './item/item.component';
 
 @Component({
-    
+
     template: '<app-navbar #parent></app-navbar><div></div>'
 
 })
@@ -18,6 +19,8 @@ export class GameComponent implements OnInit {
     bodovi: number = 0;
     private subscription: Subscription;
 
+    constructor(private componentFactoryResolver: ComponentFactoryResolver, private _router:  Router) {
+    }
 
     ngOnInit() {
         this.addElement();
@@ -32,6 +35,7 @@ export class GameComponent implements OnInit {
         if (start > trajanjeIgre) {
             //alert("game over");
             this.prekidIgre();
+            this._router.navigate(['/highscore/']);
         }
 
     }
@@ -44,13 +48,12 @@ export class GameComponent implements OnInit {
     @ViewChild('parent', { read: ViewContainerRef }) target: ViewContainerRef;
     private componentRef: ComponentRef<any>;
 
-    constructor(private componentFactoryResolver: ComponentFactoryResolver) {
-    }
+
 
     addElement() {
         let childComponent = this.componentFactoryResolver.resolveComponentFactory(ItemComponent);
         this.componentRef = this.target.createComponent(childComponent);
-        
+
     }
 
 }

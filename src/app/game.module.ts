@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { GameComponent } from './game/game.component';
 import { NavbarComponent } from './game/navbar/navbar.component';
 import { ItemComponent } from './game/item/item.component';
+import { Endscreen } from './endscreen/endscreen.component';
 
 
 @NgModule({
@@ -12,11 +13,13 @@ import { ItemComponent } from './game/item/item.component';
         GameComponent,
         NavbarComponent,
         ItemComponent,
+        Endscreen
     ],
     imports: [
         CommonModule,
         RouterModule.forChild([
-            { path: 'game/:nickname', component: GameComponent}
+            { path: 'game/:nickname', component: GameComponent},
+            { path: 'highscore', component: Endscreen}
         ])
     ],
    // bootstrap: [ GameComponent ],

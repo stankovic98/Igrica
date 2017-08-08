@@ -20,7 +20,7 @@ import { ScoreService } from './game/shared/score.service';
     GameModule,
     HttpModule,
     RouterModule.forRoot([
-      { path: 'welcome', component: WelcomeComponent },
+      { path: 'welcome', component: WelcomeComponent },    
       { path: '', component: WelcomeComponent},
       { path: '**', component: WelcomeComponent }
 
