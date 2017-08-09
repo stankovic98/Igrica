@@ -1,6 +1,6 @@
 import { Component, OnInit, } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ScoreService } from './../shared/score.service';
+import { ScoreService } from './../../shared/score.service';
 @Component({
     selector: 'appitem',
     template: `
@@ -37,7 +37,6 @@ export class ItemComponent implements OnInit {
     setStyle() {
         switch (this.shape) {
             case 0:
-                console.log('case 1');
                 this.style = {
                     "width": this.sizeX,
                     "height": this.sizeY,
@@ -47,7 +46,6 @@ export class ItemComponent implements OnInit {
                 }
                 break;
             case 1:
-                console.log('case 2');
                 this.style = {
                     "width": this.sizeX,
                     "height": this.sizeX,
@@ -58,7 +56,6 @@ export class ItemComponent implements OnInit {
                 }
                 break;
             case 2:
-                console.log('case 3');
                 this.style = {
                     "width": this.sizeX,
                     "height": this.sizeX,

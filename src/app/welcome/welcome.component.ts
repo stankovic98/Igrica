@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 
 @Component({
     templateUrl: './welcome.template.html',
@@ -7,16 +8,20 @@ import { Router } from '@angular/router';
 })
 export class WelcomeComponent {
     nickname: string = '';
-    
-    constructor(private _router: Router){}
+
+
+    constructor(private _router: Router) { }
+
+   
 
     onClick(): void {
-        if (this.nickname == ''){
+
+        if (this.nickname == '') {
             alert('You need to enter nickname');
             return;
         }
 
-        this._router.navigate(['/game/'+ this.nickname]);
+        this._router.navigate(['/game/' + this.nickname]);
     }
 
 }

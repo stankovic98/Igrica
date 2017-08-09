@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
-import { ScoreService } from './../shared/score.service';
+import { ScoreService } from './../../shared/score.service';
 @Component({
     selector: 'app-navbar',
     templateUrl:'./navbar.template.html'

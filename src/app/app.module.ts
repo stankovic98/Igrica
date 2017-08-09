@@ -7,7 +7,8 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { GameModule } from './game.module';
-import { ScoreService } from './game/shared/score.service';
+import { ScoreService } from './shared/score.service';
+import { ApiService } from './shared/server.observable';
 
 @NgModule({
   declarations: [
@@ -20,14 +21,17 @@ import { ScoreService } from './game/shared/score.service';
     GameModule,
     HttpModule,
     RouterModule.forRoot([
-      { path: 'welcome', component: WelcomeComponent },    
-      { path: '', component: WelcomeComponent},
+      { path: 'welcome', component: WelcomeComponent },
+      { path: '', component: WelcomeComponent },
       { path: '**', component: WelcomeComponent }
 
     ]),
-    
+
   ],
-  providers: [ ScoreService ],
-  bootstrap: [AppComponent]
+  providers: [
+    ScoreService,
+    ApiService
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
