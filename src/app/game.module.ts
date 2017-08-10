@@ -21,7 +21,7 @@ import { GuardService } from './shared/guard.service';
         RouterModule.forChild([
             { path: 'game/:nickname', component: GameComponent},
             { path: 'highscore', 
-             canActivate: [GuardService],
+             //canActivate: [GuardService],
              component: Endscreen}
         ])
     ],
