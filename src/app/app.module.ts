@@ -9,6 +9,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { GameModule } from './game.module';
 import { ScoreService } from './shared/score.service';
 import { ApiService } from './shared/server.observable';
+import { GuardService } from './shared/guard.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ApiService } from './shared/server.observable';
   ],
   providers: [
     ScoreService,
-    ApiService
+    ApiService,
+    GuardService
   ],
   bootstrap: [AppComponent],
 })

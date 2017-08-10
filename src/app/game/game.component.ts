@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
 import { ItemComponent } from './item/item.component';
+import { GuardService } from './../shared/guard.service';
 
 @Component({
 
@@ -19,7 +20,7 @@ export class GameComponent implements OnInit {
     bodovi: number = 0;
     private subscription: Subscription;
 
-    constructor(private componentFactoryResolver: ComponentFactoryResolver, private _router:  Router) {
+    constructor(private componentFactoryResolver: ComponentFactoryResolver, private _router: Router, private _guard: GuardService) {
     }
 
     ngOnInit() {
@@ -35,13 +36,14 @@ export class GameComponent implements OnInit {
         if (start > trajanjeIgre) {
             //alert("game over");
             this.prekidIgre();
-            this._router.navigate(['/highscore/']);
         }
 
     }
 
     prekidIgre(): void {
         this.subscription.unsubscribe();
+        this._guard.gameOver = false;
+        this._router.navigate(['/highscore/']);
     }
 
 

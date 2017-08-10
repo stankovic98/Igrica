@@ -6,6 +6,7 @@ import { GameComponent } from './game/game.component';
 import { NavbarComponent } from './game/navbar/navbar.component';
 import { ItemComponent } from './game/item/item.component';
 import { Endscreen } from './endscreen/endscreen.component';
+import { GuardService } from './shared/guard.service';
 
 
 @NgModule({
@@ -19,11 +20,14 @@ import { Endscreen } from './endscreen/endscreen.component';
         CommonModule,
         RouterModule.forChild([
             { path: 'game/:nickname', component: GameComponent},
-            { path: 'highscore', component: Endscreen}
+            { path: 'highscore', 
+             canActivate: [GuardService],
+             component: Endscreen}
         ])
     ],
    // bootstrap: [ GameComponent ],
-    entryComponents: [ItemComponent]
+    entryComponents: [ItemComponent],
+    
     
 })
 

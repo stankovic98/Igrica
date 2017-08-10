@@ -2,7 +2,7 @@ h1 {
     text-align: center;
 }
 #body {
-    background-image: url('app/endscreen/gaming-pattern.png');
+    background-image: url('gaming-pattern.png');
     height: 100vh;
 }
 .highscores {
