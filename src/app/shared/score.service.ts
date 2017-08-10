@@ -5,6 +5,7 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class ScoreService {
     score: number = 0;
+    nickname: string;
     private subject = new Subject();
 
     setScore(scoreValue: number) {
