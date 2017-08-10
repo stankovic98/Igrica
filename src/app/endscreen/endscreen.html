@@ -1,9 +1,26 @@
-<h1>{{ msg }} test!</h1>
-<h1>Your nickname: {{ nickname }}</h1>
-<h1>Your score: {{ score }}</h1>
-<div *ngFor='let element of highscores'>
-    <li class="list-group-item justify-content-between" name="prvi">
-        <span>{{ element.nickname }}</span>
-        <span class="badge badge-default badge-pill">{{element.score}}</span>
-    </li>
+<div id='body'>
+    <div class='container'>
+        <h1>Game Over!</h1>
+        <h2>Your score:</h2>
+        <li class="list-group-item justify-content-between" name="prvi">
+            <span>{{ nickname }}</span>
+            <span class="badge badge-default badge-pill">{{ score }}</span>
+        </li>
+
+        <div class="highscores">
+            <h2>Highscores</h2>
+            <div *ngFor='let element of highscores'>
+                <li class="list-group-item justify-content-between" name="prvi">
+                    <span class='nickname'>{{ element.nickname }}</span>
+                    <span class="badge badge-default badge-pill">{{element.score}}</span>
+                </li>
+            </div>
+        </div>
+
+        <div class='button-area'>
+            <button type="button" class="btn btn-success" (click)="changeNickname()">Change nickname</button>
+
+            <button type="button" class="btn btn-primary restart" (click)="restart()">Restart</button>
+        </div>
+    </div>
 </div>

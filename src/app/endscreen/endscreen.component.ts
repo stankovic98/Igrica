@@ -9,7 +9,6 @@ import { ScoreService } from './../shared/score.service';
     styleUrls: ['./endscreen.style.css']
 })
 export class Endscreen implements OnInit {
-    msg: string = "hello";
     nickname: string;
     score: number;
     highscores: IPlayer[];
