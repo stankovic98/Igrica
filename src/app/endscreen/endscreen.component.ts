@@ -14,12 +14,21 @@ export class Endscreen implements OnInit {
     score: number;
     highscores: IPlayer[];
 
-    constructor(private _http: ApiService, private _score: ScoreService, private _router: Router){}
+    constructor(private _http: ApiService, private _score: ScoreService, private _router: Router) { }
 
     ngOnInit() {
         this._http.getMessage().subscribe(msg => {
             this.highscores = msg;
-        }, (err) => { console.log(err) });
+        }, (err) => { console.log(err) },
+            () => {
+                this.highscores.sort((a, b) => {
+                    if (a.score > b.score)
+                        return -1;
+                    if (a.score < b.score)
+                        return 1;
+                    return 0;
+                });
+            });
         this.score = this._score.score;
         this.nickname = this._score.nickname;
         console.log(this.nickname);

@@ -13,7 +13,6 @@ export class GuardService implements CanActivate {
             this._router.navigate(['/welcome']);
             return false;
         } else {
-            console.log("hej "+ this.gameOver);
             return true;
         }
     }
